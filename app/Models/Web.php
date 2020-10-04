@@ -24,14 +24,19 @@ class Web{
             'accion' => 'registro'
         ]);
 
+        $map->get('gConsulta', '/consulta', [
+            'controlador' =>  'App\Controllers\ViewsController',
+            'accion' => 'consulta'
+        ]);
+
         $map->post('ajaxRegistro', '/registro/datos', [
             'controlador' =>  'App\Controllers\ViewsController',
             'accion' => 'registroAjax'
         ]);
 
-        $map->get('gConsulta', '/consulta', [
+        $map->post('ajaxConsulta', '/consulta/id', [
             'controlador' =>  'App\Controllers\ViewsController',
-            'accion' => 'consulta'
+            'accion' => 'consultaAjax'
         ]);
     }
 

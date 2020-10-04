@@ -21,7 +21,7 @@
 
         <div class="row justify-content-center">
             <i class="fas fa-search" aria-hidden="true"></i>
-            <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Busqueda" aria-label="Search" name="parametro" id="BusquedaCampo">
+            <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Ingrese el ID del empleado" aria-label="Search" name="parametro" id="BusquedaCampo">
         </div>
 
         <div class="row">
@@ -35,16 +35,17 @@
                 <div class="table-responsive-sm">
                     <table class="table" id="miTabla">
 
-                        <thead class="thead-dark">
+                        <thead>
                             <tr>
+                                <th scope="col">ID</th>
                                 <th scope="col">Nombre(s)</th>
                                 <th scope="col">Ap Paterno</th>
                                 <th scope="col">Ap Materno</th>
-                                <th scope="col">Telefono </th>
-                                <th scope="col">Editar</th>
+                                <th scope="col">Fecha de Nacimiento </th>
+                                <th scope="col">Ingreso Anual</th>
                             </tr>
                         </thead>
-
+                        
                         <tbody id="datosTabla">
 
                         </tbody>
@@ -55,7 +56,7 @@
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-
+    <script src="<?php echo RUTA_SERVER ?>scripts/consulta.js"></script>
 </body>
 
 </html>

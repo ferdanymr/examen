@@ -29,4 +29,23 @@ class ViewsController
         var_dump($registro->registrarEmpleado($data));
 
     }
+
+    /**
+     * el metodo consultara los registros y retornara datos dependiendo del ID
+     * en el caso de que el ID sea 'nada' lo que se retornaran seran todos los registros de la BD
+     * en el caso de que sea un digito retornara todos los registros que concuerden con el ID
+     * los registros retornados se parcean a Json
+     */
+    public function consultaAjax($request){
+
+        $consulta = new ConsultaController();
+        $id = $request->getParsedBody()['id'];
+        if($id != 'nada'){
+            $json = json_encode($consulta->consultaPorId($id));
+        }else{
+            $json = json_encode($consulta->consultaEmpleados());
+        }
+        echo $json;
+
+    }
 }
