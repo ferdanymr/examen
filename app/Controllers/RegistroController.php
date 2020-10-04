@@ -38,8 +38,8 @@ class RegistroController extends BDController{
 
             $datos = new Datos();
             $datos->id = $empleado->id;
-            $datos->fechaNacimiento = $request['birthday'];
-            $datos->ingresosAnuales = $request['ingresos'];
+            $datos->birthday = $request['birthday'];
+            $datos->ingresosA = $request['ingresosA'];
             $datos->save();
 
             return 'Empleado guardado con exito';

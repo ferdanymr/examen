@@ -22,8 +22,8 @@ class ConsultaController extends BDController{
             'usuario.name',
             'usuario.lastName',
             'usuario.secondLastName',
-            'datos.fechaNacimiento',
-            'datos.ingresosAnuales'
+            'datos.birthday',
+            'datos.ingresosA'
         )
         ->where('usuario.id', 'like', '%' . $id . '%')
         ->get();
@@ -39,8 +39,8 @@ class ConsultaController extends BDController{
             'usuario.name',
             'usuario.lastName',
             'usuario.secondLastName',
-            'datos.fechaNacimiento',
-            'datos.ingresosAnuales'
+            'datos.birthday',
+            'datos.ingresosA'
         )
         ->get();
     }

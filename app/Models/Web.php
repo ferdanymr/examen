@@ -14,29 +14,52 @@ class Web{
 
     public function cargarRutas($map){
         
-        $map->get('gPrincipal', '/', [
+        $map->get('gPrincipal', RUTA_URL , [
             'controlador' =>  'App\Controllers\ViewsController',
             'accion' => 'home'
         ]);
 
-        $map->get('gRegistro', '/registro', [
+        $map->get('gRegistro', RUTA_URL . 'registro', [
             'controlador' =>  'App\Controllers\ViewsController',
             'accion' => 'registro'
         ]);
 
-        $map->get('gConsulta', '/consulta', [
+        $map->get('gConsulta', RUTA_URL . 'consulta', [
             'controlador' =>  'App\Controllers\ViewsController',
             'accion' => 'consulta'
         ]);
 
-        $map->post('ajaxRegistro', '/registro/datos', [
+        $map->post('ajaxRegistro', RUTA_URL . 'registro/datos', [
             'controlador' =>  'App\Controllers\ViewsController',
             'accion' => 'registroAjax'
         ]);
 
-        $map->post('ajaxConsulta', '/consulta/id', [
+        $map->post('ajaxConsulta', RUTA_URL . 'consulta/id', [
             'controlador' =>  'App\Controllers\ViewsController',
             'accion' => 'consultaAjax'
+        ]);
+
+        $map->get('getAPI', RUTA_URL . 'empleados', [
+            'controlador' =>  'App\Controllers\APIController',
+            'accion' => 'getEmpleados'
+        ]);
+
+        /**
+         * en empleado/{id} estamos diciendo que  id puede traer cualquier valor
+         */
+        $map->get('getAPI2', RUTA_URL . 'empleado/{id}', [
+            'controlador' =>  'App\Controllers\APIController',
+            'accion' => 'getEmpleadoById'
+        ]);
+
+        $map->get('getAPI3', RUTA_URL . 'empleado', [
+            'controlador' =>  'App\Controllers\APIController',
+            'accion' => 'getEmpleado'
+        ]);
+
+        $map->post('postAPI', RUTA_URL . 'empleado', [
+            'controlador' =>  'App\Controllers\APIController',
+            'accion' => 'agregarEmpleado'
         ]);
     }
 

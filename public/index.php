@@ -15,6 +15,7 @@ require_once '../vendor/autoload.php';
 //necesitaremos el autoload aqui
 
 define('RUTA_SERVER', 'http://localhost/');
+define('RUTA_URL', '/');
 
 $request = Laminas\Diactoros\ServerRequestFactory::fromGlobals(
     $_SERVER,

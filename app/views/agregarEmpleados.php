@@ -68,7 +68,7 @@
             <div class="col-sm-4"></div>
             <div class="col-sm-4">
                 <label for="ingresos">Ingresos anuales</label>
-                <input type="number" class="form-control" id="ingresos" name="ingresos" step="any">
+                <input type="number" class="form-control" id="ingresosA" name="ingresos" step="any">
                 <div class="invalid-feedback">Llena el campo</div>
                 <div class="valid-feedback">Ok!</div>
             </div>
