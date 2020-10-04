@@ -45,7 +45,7 @@ $route = $matcher->match($request);
 
 //si no se reconoce la ruta nos mandara a la pagina de 404
 if (!$route) {
-    
+    var_dump($request->getUri()->getPath());
     require_once '../app/views/principal/error.php';
 
 } else {

@@ -15,13 +15,23 @@ class Web{
     public function cargarRutas($map){
         
         $map->get('gPrincipal', '/', [
-            'controlador' =>  'App\Controllers\PrincipalViewController',
-            'accion' => 'home',
+            'controlador' =>  'App\Controllers\ViewsController',
+            'accion' => 'home'
         ]);
 
         $map->get('gRegistro', '/registro', [
-            'controlador' =>  'App\Controllers\PrincipalViewController',
-            'accion' => 'registro',
+            'controlador' =>  'App\Controllers\ViewsController',
+            'accion' => 'registro'
+        ]);
+
+        $map->post('ajaxRegistro', '/registro/datos', [
+            'controlador' =>  'App\Controllers\ViewsController',
+            'accion' => 'registroAjax'
+        ]);
+
+        $map->get('gConsulta', '/consulta', [
+            'controlador' =>  'App\Controllers\ViewsController',
+            'accion' => 'consulta'
         ]);
     }
 
