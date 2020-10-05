@@ -56,7 +56,7 @@
             <div class="col-sm-4"></div>
             <div class="col-sm-4">
                 <label for="birthday"> Fecha de Nacimiento</label>
-                <input type="date" class="form-control" name="birthday" id="birthday" required min="1936-01-01" max="2005-01-01">
+                <input type="date" class="form-control" name="birthday" id="birthday" required min="1600-01-01" max="2020-10-08">
                 <div class="invalid-feedback">Llena el campo</div>
                 <div class="valid-feedback">Ok!</div>
             </div>
@@ -68,7 +68,7 @@
             <div class="col-sm-4"></div>
             <div class="col-sm-4">
                 <label for="ingresos">Ingresos anuales</label>
-                <input type="number" class="form-control" id="ingresosA" name="ingresos" step="any">
+                <input type="number" class="form-control" id="ingresosA" name="ingresosA" min="0" step="0.01">
                 <div class="invalid-feedback">Llena el campo</div>
                 <div class="valid-feedback">Ok!</div>
             </div>

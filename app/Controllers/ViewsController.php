@@ -5,14 +5,17 @@ namespace App\Controllers;
 class ViewsController
 {
 
+    //desplegamos la vista principal
     public function home(){
         require_once '../app/views/principal.php';
     }
 
+    //desplegamos la vista de registro
     public function registro(){
         require_once '../app/views/agregarEmpleados.php';
     }
 
+    //desplegamos la vista de consulta
     public function consulta(){
         require_once '../app/views/consultarEmpleados.php';
     }
@@ -25,6 +28,7 @@ class ViewsController
     public function registroAjax($request){
 
         $data = $request->getParsedBody()['data'];
+        $data['birthday'] = date("d-m-Y", strtotime($data['birthday']));
         $registro = new RegistroController();
         var_dump($registro->registrarEmpleado($data));
 
@@ -41,7 +45,7 @@ class ViewsController
         $consulta = new ConsultaController();
         $id = $request->getParsedBody()['id'];
         if($id != 'nada'){
-            $json = json_encode($consulta->consultaPorId($id));
+            $json = json_encode($consulta->consultaPorIdVista($id));
         }else{
             $json = json_encode($consulta->consultaEmpleados());
         }

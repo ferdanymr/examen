@@ -4,7 +4,7 @@ const name = document.getElementById('name');
 const lastName = document.getElementById('lastName');
 const secondLastName = document.getElementById('secondLastName');
 const birthday = document.getElementById('birthday');
-const ingresos = document.getElementById('ingresos');
+const ingresos = document.getElementById('ingresosA');
 
 /**
  * cuando demos submit en el form quitaremos el comportamiento por default 
@@ -26,7 +26,7 @@ function registro() {
         'lastName' : lastName.value,
         'secondLastName' : secondLastName.value,
         'birthday' : birthday.value,
-        'ingresos' : ingresos.value
+        'ingresosA' : ingresos.value
         }
     
     $.ajax({

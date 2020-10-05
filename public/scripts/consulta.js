@@ -37,19 +37,19 @@ function consultar(id) {
         success: function (response) {
             let empleados = JSON.parse(response);
             let plantilla = ``;
-                empleados.forEach(empleado => {
-                    plantilla += `
+            empleados.forEach(empleado => {
+                plantilla += `
                     <tr>
                        <th scope = "row"> ${empleado.id} </th>
                           <td> ${empleado.name} </td>
                           <td> ${empleado.lastName}</td>
                           <td> ${empleado.secondLastName}</td>
-                          <td> ${empleado.fechaNacimiento} </td>
-                          <td> ${empleado.ingresosAnuales} </td>
+                          <td> ${empleado.birthday} </td>
+                          <td> ${empleado.ingresosA} </td>
                     </tr>`
 
-                })
-                tabla.innerHTML = plantilla;
+            })
+            tabla.innerHTML = plantilla;
         }
     })
 }

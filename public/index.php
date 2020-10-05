@@ -1,10 +1,4 @@
 <?php
-ini_set('display_errors', 1); //inicializamos los errores en php,
-
-//esto para que haga lo mismo que xampp y nos muestre errores en pantalla
-ini_set('display_starup_error', 1);
-error_reporting(E_ALL);     //todos los errores
-
 use Aura\Router\RouterContainer;
 // declaramos que usaremos el router de aura
 

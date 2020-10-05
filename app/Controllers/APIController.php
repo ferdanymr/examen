@@ -1,10 +1,6 @@
 <?php
 
 namespace App\Controllers;
-
-use Illuminate\Support\Facades\Response;
-use Laminas\Diactoros\Response\JsonResponse;
-
 class APIController{
 
     /**
@@ -37,7 +33,7 @@ class APIController{
 
         $consulta = new ConsultaController();
 
-        $json = json_encode($consulta->consultaPorId($id));
+        $json = json_encode($consulta->consultaPorIdAPI($id));
 
         echo $json;
 
@@ -62,50 +58,40 @@ class APIController{
 
     }
 
+    /**
+     * recibimos los datos en crudo del envio de datos post
+     * por eso mandamos a leer el archivo de entrada de php://input
+     * para poder procesar la entrada, despues decodificamos el json a un 
+     * array asociativo, validamos que esten todos los campos y que tengan un valor diferente
+     * a vacio en la data recibida, si todo salio bien lo mandamos al registro donde pasaran por otra validacion.
+     */
     public function agregarEmpleado(){
         $data = file_get_contents('php://input');
         $data = json_decode($data, true);
         $bandera = false;
         $error = '';
 
-        if(array_key_exists('name', $data)){
+        $validator = new ValidatorController();
 
-            if(array_key_exists('lastName', $data)){
-
-                if(array_key_exists('secondLastName', $data)){
-
-                    if(array_key_exists('birthday', $data)){
-
-                        if(array_key_exists('ingresosA', $data)){
-                            $bandera = true;
-                        }else{
-                            $error = 'ingresosA';
-                        }
-
-                    }else{
-                        $error = 'birthday';
-                    }
-
-                }else{
-                    $error = 'secondLastName';
-                }
-
-            }else{
-                $error = 'lastName';
-            }
-
-        }else{
-            $error = 'name';
-        }
-
-        if($bandera){
+        if($validator->estanTodosLosParametros($data)){
             
             $registro = new RegistroController();
 
-            echo $registro->registrarEmpleado($data);
+            //retorna un mensaje de como salio la operacion
+            $json = [
+                'Estado:' => $registro->registrarEmpleado($data)
+            ];
+            
+            echo json_encode($json);
+            
 
         }else{
-            echo "falta el campo $error." . ' El fomato es "{"name":"name","lastName":"lastName","secondLastName":"secondLastName", "birthday": "dd/mm/yyyy", "ingresos":"xxxx.xx"}"';
+            
+            $json = [
+                'Estado:' => 'Error en el Json. El fomato es {"name":"name","lastName":"lastName","secondLastName":"secondLastName", "birthday": "dd/mm/yyyy", "ingresos":xxxx.xx}'
+            ];
+
+            echo json_encode($json);
         }
     }
 

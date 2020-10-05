@@ -20,4 +20,8 @@ class Datos extends Model{
     protected $primaryKey = 'id';
     public $incrementing = false;
 
+    //con esto logramos que la fecha nos la formatee a d-m-y cuando trae los datos
+    protected $casts = [
+        'birthday' => 'datetime:d-m-Y',
+    ];
 }
